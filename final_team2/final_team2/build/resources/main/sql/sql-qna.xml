@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitc.fs501.final_team2.mapper.QnaMapper">
+
+    <!-- QnA 목록 가져오기 -->
+    <select id="qnaList" resultType="com.bitc.fs501.final_team2.dto.QnaDTO">
+        SELECT i.inq_idx, i.user_id, i.inq_title, i.inq_content, i.inq_comments,
+        DATE_FORMAT(i.inq_createDate, '%Y-%m-%d') as inq_createDate,
+        f.sFile
+        FROM inquiries i
+        LEFT JOIN files f ON i.inq_idx = f.inq_idx
+        ORDER BY i.inq_idx DESC
+    </select>
+
+    <!-- QnA 등록하기 -->
+    <insert id="qnaInsert" parameterType="com.bitc.fs501.final_team2.dto.QnaDTO" useGeneratedKeys="true" keyProperty="inqIdx">
+        INSERT INTO inquiries (user_id, inq_title, inq_content, inq_createDate)
+        VALUES (#{userId}, #{inqTitle}, #{inqContent}, now());
+    </insert>
+
+    <select id="myInquiry" parameterType="com.bitc.fs501.final_team2.dto.QnaDTO">
+        SELECT i.inq_idx, i.user_id, i.inq_title, i.inq_content, i.inq_comments,
+        DATE_FORMAT(i.inq_createDate, '%Y-%m-%d') as inq_createDate,
+        f.sFile
+        FROM inquiries i
+        LEFT JOIN files f ON i.inq_idx = f.inq_idx
+        WHERE i.user_id = #{userId};
+    </select>
+
+    <!-- QnA 답변 등록하기 -->
+    <update id="qnaCommentInsert" parameterType="com.bitc.fs501.final_team2.dto.QnaDTO">
+        UPDATE inquiries
+        SET inq_comments = #{inqComments}
+        WHERE inq_idx = #{inqIdx};
+    </update>
+</mapper>

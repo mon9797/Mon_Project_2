@@ -1,0 +1,60 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitc.fs501.final_team2.mapper.UserMapper">
+    <!--결제날짜-->
+    <update id="updateSubdate" parameterType="com.bitc.fs501.final_team2.dto.UserDTO">
+        UPDATE user_info
+        SET user_sub_date = #{userSubdate}
+        WHERE user_idx = #{userIdx}
+    </update>
+    <!-- 로그인 확인-->
+    <select id="isUserInfo" parameterType="map" resultType="int">
+        SELECT COUNT(*) AS cnt
+        FROM user_info
+        WHERE user_id = #{userId}
+        AND user_password = #{userPassword}
+    </select>
+
+    <!--회원가입 -->
+    <insert id="signUp" parameterType="com.bitc.fs501.final_team2.dto.UserDTO">
+        INSERT INTO user_info (user_id, user_password, user_name, user_email, user_call,
+        user_address)
+        VALUES (#{userId}, #{userPassword}, #{userName}, #{userEmail}, #{userCall},
+        #{userAddress});
+    </insert>
+    <!--로그인 정보 확인-->
+    <select id="findByUserId"  resultType="com.bitc.fs501.final_team2.dto.UserDTO">
+        SELECT * FROM user_info WHERE user_id = #{userId};
+    </select>
+
+    <select id="selectAllUsers" resultType="com.bitc.fs501.final_team2.dto.UserDTO">
+        SELECT * FROM user_info;
+    </select>
+
+    <!-- 결제일자 업데이트 -->
+    <update id="updateUserSubdate" parameterType="map">
+        UPDATE user_info
+        SET user_sub_date = #{userSubdate}
+        WHERE user_id = #{userId}
+    </update>
+
+
+    <select id="findAndRetryPayments" resultType="com.bitc.fs501.final_team2.dto.UserDTO" parameterType="String">
+        SELECT * FROM user_info
+        WHERE DATE(user_sub_date) = CURDATE()
+        AND user_level IN ('Bronze', 'Silver', 'Gold', 'Vip')
+    </select>
+
+    <!-- 회원 등급 업데이트 -->
+    <update id="updateUserLevel" parameterType="map">
+        UPDATE user_info
+        SET user_level = #{userLevel}
+        WHERE user_id = #{userId}
+    </update>
+
+    <select id="findByUserIdx"  resultType="com.bitc.fs501.final_team2.dto.UserDTO">
+        SELECT * FROM user_info WHERE user_idx = #{userIdx};
+    </select>
+
+</mapper>

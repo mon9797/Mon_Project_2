@@ -1,0 +1,84 @@
+.footer-info {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #222;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    z-index: 1000; /* 다른 요소 위에 나타나도록 z-index 설정 */
+}
+
+.footer-logo {
+    font-size: 24px;
+    color: #fff;
+}
+
+.colum-info {
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer-biz-info,
+.customer-info {
+    list-style: none;
+    padding: 0;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.footer-biz-info li,
+.customer-info li {
+    margin-bottom: 5px;
+}
+
+.footer-tel {
+    color: #007bff;
+}
+
+.customer-btns a {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.footer-sns-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin-top: 10px;
+}
+
+.footer-sns-list li {
+    margin-right: 10px;
+}
+
+.footer-sns-list .fab {
+    font-size: 35px;
+    color: #007bff;
+}
+
+.copyright {
+    margin-top: 10px;
+    color: #666;
+    padding-left: 30px;
+}
+
+.blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

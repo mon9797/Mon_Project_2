@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitc.fs501.final_team2.mapper.FileMapper">
+
+    <!-- qna에 파일 정보 등록하기 -->
+    <insert id="qnaInsertFile" parameterType="com.bitc.fs501.final_team2.dto.FileDTO" >
+        INSERT INTO files (inq_idx, oFile, sFile)
+        VALUES (#{inqIdx}, #{oFile}, #{sFile})
+    </insert>
+
+    <!-- 리뷰에 파일 정보 등록하기 -->
+    <insert id="revInsertFile" parameterType="com.bitc.fs501.final_team2.dto.FileDTO" >
+        INSERT INTO files (rev_idx, oFile, sFile)
+        VALUES (#{revIdx}, #{oFile}, #{sFile})
+    </insert>
+
+    <!--    리뷰 파일 삭제-->
+    <delete id="deleteFile" parameterType="int">
+        DELETE FROM files WHERE file_idx = #{fileIdx};
+    </delete>
+</mapper>

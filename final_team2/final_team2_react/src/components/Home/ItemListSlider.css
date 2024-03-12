@@ -1,0 +1,9 @@
+.discounted-price1 {
+    text-decoration: line-through;
+    color: #808080; /* 회색 */
+    font-size: 16px;
+}
+
+.price {
+    font-size: 20px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+    <script>
+        var IMP = window.IMP;
+        IMP.init("imp32702525");
+
+        function requestSubscription() {
+            IMP.request_pay(
+                {
+                    pg: "kakaopay",
+                    pay_method: "card",
+                    merchant_uid: "57008833-33004", // 정기 결제를 위한 고유 ID
+                    name: "테스트 상점 정기결제", // 상품명
+                    amount: 100, // 결제 금액
+                    customer_uid: "your_customer_uid", // 고객의 고유 ID
+                    buyer_email: 'test@naver.com',
+                    buyer_name: '코드쿡',
+                    buyer_tel: '010-1234-5678',
+                    buyer_addr: '서울특별시',
+                    buyer_postcode: '123-456',
+                },
+                function (rsp) {
+                    // 결제 후 로직 추가
+                    $.ajax({
+                        type: 'POST',
+                        url: '/verifySubscriptionIamport/' + rsp.imp_uid,
+                        success: function(data) {
+                            if (rsp.success) {
+                                alert('정기결제가 성공했습니다.');
+                                // 성공 시 추가적인 로직 처리
+                            } else {
+                                alert('정기결제가 실패했습니다.');
+                                // 실패 시 추가적인 로직 처리
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('정기결제 검증 중 오류 발생:', error);
+                            alert('정기결제가 실패했습니다.');
+                            // 오류 시 추가적인 로직 처리
+                        }
+                    });
+                }
+            );
+        }
+    </script>
+    <meta charset="UTF-8">
+    <title>Sample Subscription Payment</title>
+</head>
+<body>
+<button onclick="requestSubscription()">정기결제 신청하기</button>
+</body>
+</html>

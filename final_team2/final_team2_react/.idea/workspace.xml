@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3f6c65ee-4344-43b7-9747-d617d2e79ff8" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JSX File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2ceuNEUw7viOPyvVno9ulgjzBGQ" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Node.js.Banner.jsx.executor": "Run",
+    "Node.js.LoginForm2.jsx.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/it/Desktop/문씨/프로젝트/와인쇼핑물/final_team2/final_team2/final_team2_react",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.install @mui/icons-material.executor": "Run",
+    "npm.npm start.executor": "Run",
+    "ts.external.directory.path": "C:\\Users\\pc\\AppData\\Local\\Programs\\IntelliJ IDEA Ultimate\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\fs501\김다영\final_team2_react\src\components\Payment" />
+      <recent name="C:\fs501\김다영\final_team2_react\src\img" />
+      <recent name="C:\fs501\김다영\final_team2_react\src\components" />
+      <recent name="C:\fs501\김다영\final_team2_react\src\components\Login" />
+      <recent name="C:\fs501\김다영\final_team2_react\public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\fs501\김다영\final_team2_react\src\components" />
+      <recent name="C:\fs501\김다영\final_team2_react\src\components\Payment" />
+      <recent name="C:\fs501\김다영\final_team2_react\src\layout" />
+      <recent name="C:\fs501\김다영\final_team2_react\src\img" />
+      <recent name="C:\fs501\김다영\final_team2_react\src\components\Home" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.npm start">
+    <configuration name="LoginForm2.jsx" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/components/Login/LoginForm2.jsx" working-dir="$PROJECT_DIR$/src/components/Login">
+      <method v="2" />
+    </configuration>
+    <configuration name="npm start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.LoginForm2.jsx" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="3f6c65ee-4344-43b7-9747-d617d2e79ff8" name="변경" comment="" />
+      <created>1708484323759</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708484323759</updated>
+      <workItem from="1708484324857" duration="12367000" />
+      <workItem from="1708580761760" duration="7523000" />
+      <workItem from="1708905342904" duration="15402000" />
+      <workItem from="1709008798547" duration="20212000" />
+      <workItem from="1709075833576" duration="12477000" />
+      <workItem from="1709095729538" duration="8250000" />
+      <workItem from="1709177221382" duration="15962000" />
+      <workItem from="1709353625299" duration="12027000" />
+      <workItem from="1709448068603" duration="764000" />
+      <workItem from="1709512449908" duration="21081000" />
+      <workItem from="1709601558801" duration="22165000" />
+      <workItem from="1709684299550" duration="8312000" />
+      <workItem from="1709705050631" duration="12061000" />
+      <workItem from="1709726372113" duration="5268000" />
+      <workItem from="1709770508836" duration="3138000" />
+      <workItem from="1709773658007" duration="7518000" />
+      <workItem from="1709781396085" duration="12725000" />
+      <workItem from="1709801367497" duration="13492000" />
+      <workItem from="1709856502109" duration="21340000" />
+      <workItem from="1709886254812" duration="4320000" />
+      <workItem from="1709974078524" duration="13508000" />
+      <workItem from="1709993165567" duration="4067000" />
+      <workItem from="1710045432175" duration="4559000" />
+      <workItem from="1710051562894" duration="30417000" />
+      <workItem from="1710112286878" duration="3322000" />
+      <workItem from="1710116079084" duration="3849000" />
+      <workItem from="1710140077415" duration="168000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

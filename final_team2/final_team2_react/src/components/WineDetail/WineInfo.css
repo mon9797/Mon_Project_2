@@ -1,0 +1,129 @@
+/* WineInfo.css */
+
+.wine-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.wine-info {
+    margin-left: 20px;
+    display: block;
+}
+
+.wine-info h1 {
+    color: #8B008B; /* 연보라 */
+    font-family: "Oswald", sans-serif; /* 오크통과 유사한 폰트 */
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.wine-image img{
+    display: block;
+    width :480px;
+    height :480px;
+}
+
+.wine-info p {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.producer, .year, .ml, .nation, .local1, .varieties1, .wineType , .abv{
+    color: #800000; /* 적갈색 */
+}
+
+.wine-info p.final-price {
+    font-size: 32px;
+    margin-top: 1px;
+    height: auto;
+}
+.wine-price{
+    margin-bottom: 0;
+}
+
+.discounted-price {
+    text-decoration: line-through;
+    color: #808080; /* 회색 */
+    font-size: 14px;
+}
+
+.quantity-controls {
+    margin-top: 10px;
+    position: relative;
+    display: flex; /* 요소들을 가로로 배열하기 위해 flex 사용 */
+    justify-content: end; /* 가운데 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
+    overflow: hidden;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.quantity-button {
+    color: black;
+    font-size: 18px;
+    font-family: "Oswald", sans-serif; /* 오크통과 유사한 폰트 */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 30px;
+    height: 30px;
+    margin-right: 30px;
+    border: 1px solid;
+}
+
+.quantity-label {
+    font-size: 18px;
+    font-family: "Oswald", sans-serif; /* 오크통과 유사한 폰트 */
+    margin-right: 30px;
+}
+#totalPrice{
+    width: 120px;
+    text-align: center;
+    font-size: 24px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.bi-heart{
+    background-color: rgba(255, 255, 255, 0);
+    border: rgba(255, 255, 255, 0);
+    color : deeppink;
+}
+.bi-heart-fill{
+    color: deeppink;
+    background-color: rgba(255, 255, 255, 0);
+    border: rgba(255, 255, 255, 0);
+}
+
+.btn-cartAdd{
+    background-color: #fff;
+    width: 50%;
+    height: 56px;
+    vertical-align: top;
+    flex-grow: 1;
+    min-width: auto;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 7px 0;
+    flex-shrink: 0;
+    position: relative;
+    margin-right: 5px;
+}
+.btn-order{
+    vertical-align: top;
+    flex-grow: 1;
+    width: 50%;
+    height: 56px;
+    margin: 0;
+    min-width: auto;
+    color: white;
+    background: #ff6001;
+    border: 1px solid #ff6001;
+    border-radius: 6px;
+}
+
+#level-sale{
+    font-size: 16px;
+    color: grey;
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitc.fs501.final_team2.mapper.CartMapper">
+
+    <resultMap id="CartItemResultMap" type="com.bitc.fs501.final_team2.dto.CartItemDTO">
+        <!-- shopping_cart 테이블의 필드들 매핑 -->
+        <id property="cartIdx" column="cart_idx"/>
+        <result property="userIdx" column="user_idx"/>
+        <result property="id" column="id"/>
+        <result property="cartQuantity" column="cart_quantity"/>
+
+        <!-- wine_info 테이블의 정보를 담는 wineInfo 필드 매핑 -->
+        <association property="wineInfo" column="id" select="getWineInfoById"/>
+    </resultMap>
+
+    <!-- 특정 사용자의 장바구니에 있는 상품 목록을 가져오는 SQL 쿼리 -->
+    <select id="getCartItemsByUserIdx" resultMap="CartItemResultMap">
+        SELECT * FROM shopping_cart WHERE user_idx = #{userIdx}
+    </select>
+
+    <!-- 특정 상품의 정보를 가져오는 SQL 쿼리 -->
+    <select id="getWineInfoById" resultType="com.bitc.fs501.final_team2.dto.WineInfoDto">
+        SELECT * FROM wine_info WHERE id = #{id}
+    </select>
+
+    <delete id="deleteCartItem" parameterType="map">
+        DELETE FROM shopping_cart
+        WHERE user_idx = #{userIdx}
+        AND id = #{wineId}
+    </delete>
+    <!-- 장바구니 아이템 전체삭제 -->
+    <delete id="deleteAllCartItems">
+        DELETE FROM shopping_cart
+        WHERE user_idx = #{userIdx}
+    </delete>
+
+    <!-- 장바구니 아이템 수량 업데이트 -->
+    <update id="updateCartItemQuantity">
+        UPDATE shopping_cart
+        SET cart_quantity = #{newQuantity}
+        WHERE user_idx = #{userIdx} AND id = #{wineId}
+    </update>
+
+    <select id="isCartItemExists" resultType="int" parameterType="map">
+        SELECT COUNT(*)
+        FROM shopping_cart
+        WHERE user_idx = #{userIdx}
+        AND id = #{wineId}
+    </select>
+
+    <!-- Insert a new cart item -->
+    <insert id="insertCartItem" parameterType="map">
+        INSERT INTO shopping_cart (user_idx, id, cart_quantity)
+        VALUES (#{userIdx}, #{wineId}, #{quantity})
+    </insert>
+
+</mapper>

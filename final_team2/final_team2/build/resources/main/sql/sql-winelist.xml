@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitc.fs501.final_team2.mapper.WinelistMapper">
+
+    <!-- WishlistItemDTO를 위한 ResultMap -->
+    <resultMap id="wishlistItemResultMap" type="com.bitc.fs501.final_team2.dto.WishlistItemDTO">
+        <id column="fav_idx" property="favIdx"/>
+        <result column="user_idx" property="userIdx"/>
+        <result column="id" property="id"/>
+        <!-- 필요에 따라 추가적인 result 매핑을 추가 -->
+    </resultMap>
+
+    <!-- WineInfoDTO를 위한 ResultMap -->
+    <resultMap id="wineInfoResultMap" type="com.bitc.fs501.final_team2.dto.WineInfoDto">
+        <id column="wine_id" property="wineId"/>
+        <!-- 필요에 따라 추가적인 result 매핑을 추가 -->
+    </resultMap>
+
+    <!-- 모든 와인 정보 조회 -->
+    <select id="getAllWines" resultMap="wineInfoResultMap">
+        SELECT * FROM wine_info;
+    </select>
+
+    <!-- 와인 ID로 와인 정보 조회 -->
+    <select id="getWineById" resultType="com.bitc.fs501.final_team2.dto.WineInfoDto">
+        SELECT * FROM wine_info WHERE id = #{wineId};
+    </select>
+
+    <!-- 사용자 ID로 찜목록 아이템 조회 -->
+    <select id="getFavoritesByUserIdx" parameterType="int" resultMap="wishlistItemResultMap">
+        SELECT * FROM favorites WHERE user_idx = #{userIdx};
+    </select>
+
+    <!-- 찜목록에 추가 -->
+    <insert id="addToFavorites" parameterType="com.bitc.fs501.final_team2.dto.WishlistItemDTO">
+        INSERT INTO favorites (user_idx, wine_id)
+        VALUES (#{userIdx}, #{id});
+    </insert>
+
+    <!-- 찜목록에서 삭제 -->
+    <delete id="removeFromFavorites" parameterType="com.bitc.fs501.final_team2.dto.WishlistItemDTO">
+        DELETE FROM favorites WHERE user_idx = #{userIdx} AND wine_id = #{id};
+    </delete>
+</mapper>

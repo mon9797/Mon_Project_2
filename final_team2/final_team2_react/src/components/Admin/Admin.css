@@ -1,0 +1,39 @@
+.fancy-font {
+    font-family: 'Your Fancy Font', sans-serif;
+    font-size: 24px;
+}
+
+.admin-container{
+    width: 1100px;
+    margin: 0 auto; /* 가운데 정렬 */
+}
+.section-header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    transition: background-color 0.3s ease;
+    justify-content: space-between;
+}
+
+.section-header:hover {
+    background-color: #e0e0e0;
+}
+
+.section-header p {
+    margin: 0;
+    font-family: 'Your Fancy Font', sans-serif;
+    font-size: 24px;
+}
+
+.section-header svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.section-header.expanded svg {
+    transform: rotate(180deg);
+}

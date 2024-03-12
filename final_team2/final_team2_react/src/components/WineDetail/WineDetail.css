@@ -1,0 +1,56 @@
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.wine-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.wine-image img {
+    max-width: 480px;
+    height: auto;
+}
+
+.wine-info {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.buttons-container {
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+.wine-price {
+    font-size: 24px;
+    color: #FF5722; /* 할인 가격 색상 설정 */
+}
+
+.discounted-price {
+    text-decoration: line-through; /* 할인 가격에 취소선 효과 추가 */
+}
+
+.final-price {
+    color: #4CAF50; /* 최종 가격 색상 설정 */
+    font-weight: bold;
+
+}

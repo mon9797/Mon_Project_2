@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitc.fs501.final_team2.mapper.OrderHistoryMapper">
+
+    <!-- 특정 사용자의 장바구니에 있는 상품 목록을 가져오는 SQL 쿼리 -->
+    <select id="getHistoryItemsByUserIdx" resultType="com.bitc.fs501.final_team2.dto.OrderHistoryDto">
+        SELECT * FROM order_history WHERE user_idx = #{userIdx}
+    </select>
+
+    <!-- 특정 상품의 정보를 가져오는 SQL 쿼리 -->
+    <select id="getWineInfoById" resultType="com.bitc.fs501.final_team2.dto.WineInfoDto">
+        SELECT * FROM wine_info WHERE id = #{id}
+    </select>
+
+    <insert id="insertOrderHistory" parameterType="com.bitc.fs501.final_team2.dto.OrderHistoryDto">
+        INSERT INTO order_history (user_idx, id, his_quantity)
+        VALUES (#{userIdx}, #{id}, #{hisQuantity})
+    </insert>
+
+</mapper>

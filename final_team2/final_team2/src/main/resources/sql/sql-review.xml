@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitc.fs501.final_team2.mapper.ReviewMapper">
+    <select id="getAllReviews" resultType="com.bitc.fs501.final_team2.dto.ReviewDto">
+        SELECT * FROM reviews;
+    </select>
+
+    <select id="getReviewsByWineId" parameterType="map" resultType="com.bitc.fs501.final_team2.dto.ReviewDto">
+        SELECT
+        r.rev_idx,
+        r.id,
+        r.user_idx,
+        r.rev_title,
+        r.rev_content,
+        r.rev_cnt,
+        r.rev_rating,
+        f.sFile,
+        u.user_id as 'userDto.userId',
+        u.user_name as 'userDto.userName',
+        u.user_level as 'userDto.userLevel'
+        FROM
+        reviews r
+        LEFT JOIN
+        files f ON r.rev_idx = f.rev_idx
+        LEFT JOIN
+        user_info u ON r.user_idx = u.user_idx
+        WHERE
+        r.id = #{wineId}
+        ORDER BY
+        r.rev_idx DESC
+        LIMIT #{start}, #{pageSize}
+    </select>
+
+
+    <select id="getTotalReviewsByWineId" parameterType="int" resultType="int">
+        SELECT COUNT(*) FROM reviews WHERE id = #{wineId};
+    </select>
+
+    <insert id="addReview" parameterType="com.bitc.fs501.final_team2.dto.ReviewDto" useGeneratedKeys="true"
+            keyProperty="revIdx">
+        INSERT INTO reviews (id,user_idx, rev_title, rev_content, rev_rating)
+        VALUES (#{id},#{userIdx}, #{revTitle}, #{revContent}, #{revRating});
+    </insert>
+
+    <update id="updateReview" parameterType="com.bitc.fs501.final_team2.dto.ReviewDto">
+        UPDATE reviews SET rev_title = #{revTitle}, revContent = #{revContent}, revComments = #{revComments},
+        rev_attachment = #{revAttachment}, rev_cnt = #{revCnt}, rev_rating = #{revRating}, rev_ofile = #{revOfile},
+        rev_sfile = #{revSfile} WHERE rev_idx = #{revIdx};
+    </update>
+
+    <delete id="deleteReview" parameterType="int">
+        DELETE FROM reviews WHERE rev_idx = #{revIdx};
+    </delete>
+
+    <select id="myReviews" parameterType="com.bitc.fs501.final_team2.dto.ReviewDto">
+        SELECT r.rev_idx, r.id, r.user_idx, r.rev_title, r.rev_content, r.rev_cnt, r.rev_rating, f.sFile
+        FROM reviews r
+        LEFT JOIN files f ON r.rev_idx = f.rev_idx
+        WHERE r.user_idx = #{userIdx};
+    </select>
+
+<!--    <select id="getReviewsByUserIdx" parameterType="map" resultType="com.bitc.fs501.final_team2.dto.ReviewDto">-->
+<!--        SELECT r.rev_idx, r.id, r.user_idx, r.rev_title, r.rev_content, r.rev_cnt, r.rev_rating, f.sFile-->
+<!--        FROM reviews r-->
+<!--        LEFT JOIN files f ON r.rev_idx = f.rev_idx-->
+<!--        WHERE r.user_idx = #{userIdx}-->
+<!--        ORDER BY r.rev_idx DESC-->
+<!--        LIMIT #{start}, #{pageSize}-->
+<!--    </select>-->
+<!---->
+<!--    <select id="getTotalReviewsByUserIdx" parameterType="int" resultType="int">-->
+<!--        SELECT COUNT(*) FROM reviews WHERE user_idx = #{userIdx};-->
+<!--    </select>-->
+    <select id="getFileInfo" parameterType="int">
+        select file_idx from files where rev_idx = #{revIdx}
+    </select>
+
+    <update id="increaseReviewCount" parameterType="int">
+        UPDATE reviews SET rev_cnt = rev_cnt + 1 WHERE rev_idx = #{revIdx}
+    </update>
+</mapper>

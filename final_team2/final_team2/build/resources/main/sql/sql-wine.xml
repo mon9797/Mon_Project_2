@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitc.fs501.final_team2.mapper.WineMapper">
+
+    <!-- 와인 목록 가져오기 -->
+    <select id="selectWineList" resultType="com.bitc.fs501.final_team2.dto.WineInfoDto">
+        SELECT
+        *
+        FROM wine_info
+    </select>
+
+    <select id="typeWineList" resultType="com.bitc.fs501.final_team2.dto.WineInfoDto">
+        SELECT
+        *
+        FROM wine_info
+        WHERE wine_type = #{wineType} or nation LIKE CONCAT('%', #{nation}, '%')
+    </select>
+
+    <select id="getWineDetail" resultType="com.bitc.fs501.final_team2.dto.WineInfoDto">
+        SELECT
+        id, name, producer, nation, local1, local2,
+        varieties1, varieties2, varieties3,
+        wine_type, wine_use, abv, degree, sweet,
+        acidity, body, tannin, price, year, ml, img
+        FROM
+        wine_info
+        WHERE
+        id = #{id}
+    </select>
+
+    <select id="searchList" resultType="com.bitc.fs501.final_team2.dto.WineInfoDto">
+        SELECT
+        *
+        FROM wine_info
+        WHERE name LIKE CONCAT('%', #{searchStr}, '%')
+    </select>
+
+    <!-- 와인 등록 -->
+    <insert id="wineInsert" parameterType="com.bitc.fs501.final_team2.dto.WineInfoDto" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO
+        wine_info (id, name, producer, nation, local1, local2, varieties1, varieties2, varieties3, wine_type, wine_use, abv, degree, sweet, acidity, body, tannin, price, year, ml, img)
+        VALUES (#{id}, #{name}, #{producer}, #{nation}, #{local1}, #{local2}, #{varieties1}, #{varieties2}, #{varieties3}, #{wineType}, #{wineUse}, #{abv}, #{degree}, #{sweet}, #{acidity}, #{body}, #{tannin}, #{price}, #{year}, #{ml}, #{img});
+    </insert>
+
+    <!-- 판매량 등록 -->
+    <update id="salesRate" parameterType="com.bitc.fs501.final_team2.dto.WineInfoDto">
+        UPDATE wine_info
+        SET sales_rate = #{salesRate}
+        WHERE id = #{id};
+    </update>
+
+    <!-- 판매량 증가 -->
+    <update id="increaseSalesRate" parameterType="com.bitc.fs501.final_team2.dto.WineInfoDto">
+        UPDATE wine_info
+        SET sales_rate = sales_rate + #{hisQuantity}
+        WHERE id = #{id}
+    </update>
+</mapper>

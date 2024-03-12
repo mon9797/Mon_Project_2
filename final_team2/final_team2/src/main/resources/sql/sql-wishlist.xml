@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitc.fs501.final_team2.mapper.WishlistMapper">
+    <resultMap id="wishlistItemResultMap" type="com.bitc.fs501.final_team2.dto.WishlistItemDTO">
+        <id column="fav_idx" property="favIdx"/>
+        <result column="user_idx" property="userIdx"/>
+        <result column="id" property="id"/>
+        <!-- 필요에 따라 추가적인 result 매핑을 추가 -->
+    </resultMap>
+
+    <!-- WineInfoDTO를 위한 ResultMap -->
+    <resultMap id="wineInfoResultMap" type="com.bitc.fs501.final_team2.dto.WineInfoDto">
+        <id column="id" property="wineId"/> <!-- 수정: 'id'로 변경 -->
+        <!-- 필요에 따라 추가적인 result 매핑을 추가 -->
+    </resultMap>
+
+    <!-- 와인 ID로 와인 정보 조회 -->
+    <select id="getWineById" resultType="com.bitc.fs501.final_team2.dto.WineInfoDto">
+        SELECT * FROM wine_info WHERE id = #{wineId} <!-- 수정: 'wineId'를 'id'로 변경 -->
+    </select>
+
+    <!-- 찜목록에 새로운 아이템 추가 -->
+    <insert id="addToFavorites" parameterType="com.bitc.fs501.final_team2.dto.WishlistItemDTO">
+        INSERT INTO favorites (user_idx, id) VALUES (#{userIdx}, #{id}) <!-- 수정: 'wineId'를 'id'로 변경 -->
+    </insert>
+
+    <!-- 찜목록에 이미 아이템이 존재하는지 확인 -->
+    <select id="getWishlistItemByUserAndWine" resultType="com.bitc.fs501.final_team2.dto.WishlistItemDTO">
+        SELECT * FROM favorites WHERE user_idx = #{userIdx} AND id = #{wineId} <!-- 수정: 'wineId'를 'id'로 변경 -->
+    </select>
+
+    <!-- 사용자 ID로 찜목록 아이템 조회 -->
+    <select id="getFavoritesByUserIdx" parameterType="int" resultType="com.bitc.fs501.final_team2.dto.WineInfoDto">
+        SELECT * FROM favorites WHERE user_idx = #{userIdx}
+    </select>
+
+    <!-- 찜목록에서 삭제 -->
+    <delete id="removeFromFavorites" parameterType="com.bitc.fs501.final_team2.dto.WishlistItemDTO">
+        DELETE FROM favorites WHERE user_idx = #{userIdx} AND id = #{wineId} <!-- 수정: 'wineId'를 'id'로 변경 -->
+    </delete>
+
+    <!-- 모두 삭제 -->
+    <delete id="deleteAllByUserIdx">
+        DELETE FROM favorites WHERE user_idx = #{userIdx}
+    </delete>
+
+    <!-- 사용자 ID로 찜목록 아이템 조회 -->
+    <select id="getWishlistItemsByUserIdx" resultType="com.bitc.fs501.final_team2.dto.WishlistItemDTO">
+        SELECT * FROM favorites WHERE user_idx = #{userIdx}
+    </select>
+
+</mapper>
